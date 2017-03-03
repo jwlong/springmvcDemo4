@@ -23,5 +23,6 @@ public class StackTest {
 //        System.out.println("容量："+cap);
 //
 //        System.out.println(sa.top());
+        System.out.println("hello git!!");
     }
 }
