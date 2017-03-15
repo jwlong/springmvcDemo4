@@ -1,11 +1,13 @@
 package com.dxfjyygy.controller;
 
+import com.dxfjyygy.entity.User;
 import com.dxfjyygy.test.service.PersonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by longjinwen on 2017/2/8.
@@ -20,8 +22,11 @@ public class MainController {
         return "index";
     }
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public String login(){
+    public String login(HttpServletRequest request){
         personService.userAxe();
+        User user = new User();
+        user.setPasswd(request.getParameter("passwd"));
+        user.setUsername(request.getParameter("username"));
         return "login";
     }
 }
