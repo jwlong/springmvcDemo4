@@ -75,8 +75,8 @@
     </bean>
      <!--工作bean-->
     <bean id="myJob" class="com.dxfjyygy.controller.MyJob" />
-    <context:component-scan base-package="com.dxfjyygy.entity"/>
     <import resource="common-javabean.xml" />
     <import resource="infrastructure.xml"/>
+
 </beans>
 
