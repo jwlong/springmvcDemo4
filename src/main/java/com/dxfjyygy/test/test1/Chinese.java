@@ -4,6 +4,9 @@ package com.dxfjyygy.test.test1;
  * Created by longjinwen on 2017/2/28.
  */
 public class Chinese implements  Person {
+    public Chinese() {
+    }
+
     public String getName() {
         return name;
     }

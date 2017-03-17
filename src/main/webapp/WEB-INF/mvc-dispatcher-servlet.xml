@@ -76,6 +76,5 @@
      <!--工作bean-->
     <bean id="myJob" class="com.dxfjyygy.controller.MyJob" />
     <import resource="common-javabean.xml" />
-
 </beans>
 

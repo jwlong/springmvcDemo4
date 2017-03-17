@@ -25,8 +25,10 @@ public class MainController {
     public String login(HttpServletRequest request){
         personService.userAxe();
         User user = new User();
+        System.out.println(request.getParameter("username"));
         user.setPasswd(request.getParameter("passwd"));
         user.setUsername(request.getParameter("username"));
+        request.setAttribute("user",user);
         return "login";
     }
 }
