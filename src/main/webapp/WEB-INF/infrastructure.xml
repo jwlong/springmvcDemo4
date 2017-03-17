@@ -10,7 +10,7 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
     ">
 
-    <context:property-placeholder location="classpath:/WEB-INF/properties/hibernate.properties" />
+    <context:property-placeholder location="classpath:/properties/hibernate.properties" />
 
     <!-- 使用C3P0数据源，MySQL数据库 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
@@ -31,7 +31,7 @@
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="com.mark.java.entity" />
+        <property name="packagesToScan" value="com.dxfjyygy.entity" />
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
