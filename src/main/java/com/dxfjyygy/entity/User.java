@@ -3,12 +3,19 @@ package com.dxfjyygy.entity;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by longjinwen on 2017/3/15.
  */
 
-public class User  implements Serializable{
+public class User implements Serializable {
+    private Integer id;
+    private String username;
+    private Date createTime;
+    private Date updateTime;
+    private String passwd;
+
     public Integer getId() {
         return id;
     }
@@ -17,8 +24,21 @@ public class User  implements Serializable{
         this.id = id;
     }
 
-    private Integer id;
-    private String username;
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
 
     public String getPasswd() {
         return passwd;
@@ -27,8 +47,6 @@ public class User  implements Serializable{
     public void setPasswd(String passwd) {
         this.passwd = passwd;
     }
-
-    private String passwd;
 
     public String getUsername() {
         return username;

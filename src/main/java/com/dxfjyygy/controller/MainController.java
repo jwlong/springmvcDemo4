@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,10 +32,11 @@ public class MainController {
     public String login(HttpServletRequest request){
       //  personService.userAxe();
         User user = new User();
-        System.out.println("hot hot hot 12asdf");
         System.out.println(request.getParameter("username"));
         user.setPasswd(request.getParameter("passwd"));
         user.setUsername(request.getParameter("username"));
+        user.setCreateTime(new Date());
+        user.setUpdateTime(new Date());
         request.setAttribute("user",user);
         List<User> list = new ArrayList<User>();
         list.add(user);

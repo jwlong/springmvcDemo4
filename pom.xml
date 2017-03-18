@@ -106,5 +106,14 @@
   </dependencies>
   <build>
     <finalName>springmvcDemo4</finalName>
+    <resources>
+      <resource>
+        <!--让maven去编译src目录下的文件-->
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+    </resources>
   </build>
 </project>
