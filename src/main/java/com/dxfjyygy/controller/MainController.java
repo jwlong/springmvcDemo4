@@ -19,10 +19,12 @@ import java.util.List;
  */
 @Controller
 public class MainController {
-    @Resource(name = "personService")
-    private PersonService personService;
-    @Resource(name = "userService")
-    private UserService userService;
+//    @Resource(name = "personService")
+//    private PersonService personService;
+//    @Resource(name = "userService")
+//    private UserService userService;
+    @Autowired
+    private  UserService userService;
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
       // personService.userAxe();

@@ -15,10 +15,10 @@ import java.util.List;
 @Transactional
 public class UserServiceImpl implements UserService{
 
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
-    }
-
+//    public void setUserDao(UserDao userDao) {
+//        this.userDao = userDao;
+//    }
+    @Autowired
     private UserDao userDao;
     public void saveUsers(List<User> us) {
         for (User user :us){

@@ -14,11 +14,11 @@ import java.util.List;
  */
 @Repository
 public class UserDaoImpl implements UserDao {
-
+   @Autowired
     private SessionFactory sessionFactory;
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
+//    public void setSessionFactory(SessionFactory sessionFactory) {
+//        this.sessionFactory = sessionFactory;
+//    }
     public int save(User user) {
         return (Integer) sessionFactory.getCurrentSession().save(user);
     }
