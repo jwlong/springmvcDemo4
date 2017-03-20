@@ -11,13 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class PersonDaoImpl implements PersonDao {
 
+    @Autowired
     private SessionFactory sessionFactory;
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
+//    public void setSessionFactory(SessionFactory sessionFactory) {
+//        this.sessionFactory = sessionFactory;
+//    }
 
     public int save(Person person) {
-        Session session = sessionFactory.openSession();
+       Session session = sessionFactory.openSession();
         return (Integer) session.save(person);
     }
 }

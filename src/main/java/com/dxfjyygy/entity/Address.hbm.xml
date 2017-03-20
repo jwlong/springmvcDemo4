@@ -10,7 +10,6 @@
         </id>
         <property name="addressDetail"  type="java.lang.String"/>
         <!--  用于映射N-1实体 -->
-        <many-to-one name="addressId" cascade="all" class="Address" column="fk_address_id"></many-to-one>
     </class>
 
 </hibernate-mapping>

@@ -44,7 +44,7 @@
                 <!--spring和hibernate整合使用getCurrentSession()方法获得session实例时，
                 一定记得在sessionFactory的bean中添加<prop key="hibernate.current_session_context_class">thread</prop>，
                 如果你的事务时交给spring管理的，则就不要配置，不然就会报错：the save is not valid without active transaction.-->
-                <prop key="hibernate.current_session_context_class">thread</prop>
+                <!--<prop key="hibernate.current_session_context_class">thread</prop>-->
             </props>
         </property>
         <property name="mappingResources">
@@ -55,20 +55,16 @@
             </list>
         </property>
     </bean>
-
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
+    <!--<aop:aspectj-autoproxy />-->
     <!-- 对数据源进行事务管理 -->
     <tx:annotation-driven transaction-manager="transactionManager" />
 
     <!--<bean id="userDao" class="com.dxfjyygy.test.dao.UserDaoImpl" />-->
     <!--<bean id="userService" class="com.dxfjyygy.test.service.UserServiceImpl" />-->
-    <bean id="personDao" class="com.dxfjyygy.test.dao.PersonDaoImpl" >
-        <property name="sessionFactory">
-            <ref bean="sessionFactory" />
-        </property>
-    </bean>
+    <bean id="personDao" class="com.dxfjyygy.test.dao.PersonDaoImpl"  />
     <bean id="personService" class="com.dxfjyygy.test.service.PersonServiceImpl" />
 </beans>
