@@ -25,12 +25,28 @@ public class MainController {
     private UserService userService;
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
-       personService.userAxe();
+      // personService.userAxe();
         return "index";
     }
+//    @RequestMapping(value = "/login",method = RequestMethod.POST)
+//    public String login(HttpServletRequest request){
+//      //  personService.userAxe();
+//        User user = new User();
+//        System.out.println(request.getParameter("username"));
+//        user.setPasswd(request.getParameter("passwd"));
+//        user.setUsername(request.getParameter("username"));
+//        user.setCreateTime(new Date());
+//        user.setUpdateTime(new Date());
+//        request.setAttribute("user",user);
+//        List<User> list = new ArrayList<User>();
+//        list.add(user);
+//        userService.saveUsers(list);
+//        return "login";
+//    }
+
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(HttpServletRequest request){
-      //  personService.userAxe();
+        //  personService.userAxe();
         User user = new User();
         System.out.println(request.getParameter("username"));
         user.setPasswd(request.getParameter("passwd"));

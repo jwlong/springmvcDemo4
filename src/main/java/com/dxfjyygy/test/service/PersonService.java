@@ -1,8 +1,10 @@
 package com.dxfjyygy.test.service;
 
+import com.dxfjyygy.entity.Person;
+
 /**
  * Created by longjinwen on 2017/2/28.
  */
 public interface PersonService {
-    public void userAxe();
+    public void save(Person person);
 }

@@ -1,5 +1,8 @@
 package com.dxfjyygy.test.service;
 
+import com.dxfjyygy.entity.Address;
+import com.dxfjyygy.entity.Person;
+import com.dxfjyygy.test.dao.PersonDao;
 import com.dxfjyygy.test.test1.Chinese;
 
 /**
@@ -7,12 +10,12 @@ import com.dxfjyygy.test.test1.Chinese;
  */
 public class PersonServiceImpl implements PersonService
 {
-    public void setChinese(Chinese chinese) {
-        this.chinese = chinese;
+    public void setPersonDao(PersonDao personDao) {
+        this.personDao = personDao;
     }
 
-    private Chinese chinese;
-    public void userAxe() {
-        chinese.useAxe();
+    private PersonDao personDao;
+    public void save(Person person) {
+        personDao.save(person);
     }
 }

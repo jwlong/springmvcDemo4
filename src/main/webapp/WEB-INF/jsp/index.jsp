@@ -11,11 +11,14 @@
     <title>Title</title>
 </head>
 <body>
-    hello ,success!!
+test JS<br>
+ <a href="test">testJs</a>
+<hr>
     <form action="login" method="post">
     用户名：<input type="text" value="" name="username">
         密码：<input type="password" value="" name="passwd">
         <input type="submit" value="提交">
     </form>
+
 </body>
 </html>
