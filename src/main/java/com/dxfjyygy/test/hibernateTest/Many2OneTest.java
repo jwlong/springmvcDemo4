@@ -42,9 +42,11 @@ public class Many2OneTest  {
 //    private PersonDao personDao;
     @Resource
     private PersonService personService;
+//    @Resource
+//    private PersonDao personDao;
     private Logger log = LoggerFactory.getLogger(Many2OneTest.class);
     @Test
-    //@Transactional   //标明此方法需使用事务
+  //  @Transactional   //标明此方法需使用事务
    // @Rollback(false)  //标明使用完此方法后事务不回滚,true时为回滚
     public void test2(){
         //System.out.println("hello");
@@ -55,5 +57,22 @@ public class Many2OneTest  {
         person.setAddress(address);
         person.setAge(22);
         personService.save(person);
+    }
+    @Test
+    @Transactional
+    public  void testPersist(){
+        Person person = new Person();
+        Address address = new Address();
+        address.setAddressDetail("Dong Guan");
+        person.setName("longjinwen");
+        person.setAddress(address);
+        person.setAge(22);
+        try {
+            personService.testPersist(person);
+            System.out.println("finish+++++++++++?");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

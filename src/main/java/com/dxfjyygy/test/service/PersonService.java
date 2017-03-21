@@ -7,4 +7,5 @@ import com.dxfjyygy.entity.Person;
  */
 public interface PersonService {
     public void save(Person person);
+    public void testPersist(Person person) throws Exception;
 }

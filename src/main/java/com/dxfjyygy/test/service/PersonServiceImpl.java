@@ -19,4 +19,8 @@ public class PersonServiceImpl implements PersonService
     public void save(Person person) {
         personDao.save(person);
     }
+
+    public void testPersist(Person person) throws Exception {
+        personDao.testPersist(person);
+    }
 }

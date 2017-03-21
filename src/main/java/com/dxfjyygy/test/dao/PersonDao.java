@@ -7,4 +7,6 @@ import com.dxfjyygy.entity.Person;
  */
 public interface PersonDao {
     public int save(Person person);
+    public void testPersist(Person person) throws Exception;
+
 }

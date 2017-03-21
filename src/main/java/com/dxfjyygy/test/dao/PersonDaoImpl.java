@@ -19,6 +19,12 @@ public class PersonDaoImpl implements PersonDao {
 
     public int save(Person person) {
        Session session = sessionFactory.openSession();
-        return (Integer) session.save(person);
+       return (Integer) session.save(person);
+    }
+
+    public void testPersist(Person person) throws Exception{
+        Session session = sessionFactory.openSession();
+        session.persist(person);
+       // session.flush(); flush之后才发sql语句
     }
 }

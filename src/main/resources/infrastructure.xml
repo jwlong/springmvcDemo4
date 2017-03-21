@@ -44,7 +44,7 @@
                 <!--spring和hibernate整合使用getCurrentSession()方法获得session实例时，
                 一定记得在sessionFactory的bean中添加<prop key="hibernate.current_session_context_class">thread</prop>，
                 如果你的事务时交给spring管理的，则就不要配置，不然就会报错：the save is not valid without active transaction.-->
-                <!--<prop key="hibernate.current_session_context_class">thread</prop>-->
+                <prop key="hibernate.current_session_context_class">thread</prop>
             </props>
         </property>
         <property name="mappingResources">
@@ -55,6 +55,7 @@
             </list>
         </property>
     </bean>
+
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"></property>
@@ -62,9 +63,20 @@
     <!--<aop:aspectj-autoproxy />-->
     <!-- 对数据源进行事务管理 -->
     <tx:annotation-driven transaction-manager="transactionManager" />
-
+    <!--<bean id="transactionBase"-->
+          <!--class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"-->
+          <!--lazy-init="true" abstract="true">-->
+        <!--&lt;!&ndash; 配置事务管理器 &ndash;&gt;-->
+        <!--<property name="transactionManager" ref="transactionManager" />-->
+        <!--&lt;!&ndash; 配置事务属性 &ndash;&gt;-->
+        <!--<property name="transactionAttributes">-->
+            <!--<props>-->
+                <!--<prop key="*">PROPAGATION_REQUIRED</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
     <!--<bean id="userDao" class="com.dxfjyygy.test.dao.UserDaoImpl" />-->
     <!--<bean id="userService" class="com.dxfjyygy.test.service.UserServiceImpl" />-->
-    <bean id="personDao" class="com.dxfjyygy.test.dao.PersonDaoImpl"  />
+    <bean id="personDao" class="com.dxfjyygy.test.dao.PersonDaoImpl" />
     <bean id="personService" class="com.dxfjyygy.test.service.PersonServiceImpl" />
 </beans>
