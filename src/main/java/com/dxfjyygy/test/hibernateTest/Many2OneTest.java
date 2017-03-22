@@ -27,8 +27,8 @@ import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 
 
-//@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration({"classpath:mvc-dispatcher-servlet.xml"})
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration({"classpath:mvc-dispatcher-servlet.xml"})
 public class Many2OneTest  {
 //    @Autowired
 //    private PersonService personService;

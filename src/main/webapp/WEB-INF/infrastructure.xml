@@ -42,6 +42,8 @@
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>
                 <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
                 <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <!--如查采用了注解式的事件.@Transactional  则不需要这样的显式的说明-->
+                <!--<prop key="hibernate.current_session_context_class">thread</prop>-->
             </props>
         </property>
         <property name="mappingResources">
@@ -55,7 +57,6 @@
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
-
     <!-- 对数据源进行事务管理 -->
     <tx:annotation-driven transaction-manager="transactionManager" />
 
