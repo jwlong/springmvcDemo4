@@ -50,7 +50,7 @@
             </list>
         </property>
     </bean>
-
+    <aop:aspectj-autoproxy />
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"></property>

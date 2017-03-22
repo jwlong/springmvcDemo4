@@ -60,6 +60,7 @@ public class Many2OneTest  {
     }
     @Test
     @Transactional
+//    @Rollback(false)
     public  void testPersist(){
         Person person = new Person();
         Address address = new Address();

@@ -11,8 +11,8 @@ import java.util.List;
 /**
  * Created by longjinwen on 2017/3/17.
  */
-@Service("userService")
-@Transactional
+//@Service("userService")
+//@Transactional
 public class UserServiceImpl implements UserService{
 
 //    public void setUserDao(UserDao userDao) {
