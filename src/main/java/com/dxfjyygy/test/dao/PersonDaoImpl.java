@@ -4,8 +4,6 @@ import com.dxfjyygy.entity.Address;
 import com.dxfjyygy.entity.Person;
 import org.aspectj.lang.annotation.Aspect;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -57,7 +55,6 @@ public class PersonDaoImpl extends BaseDaoSessionFactoryImpl implements PersonDa
         // 并且session会同sessionFactory组成一个map以sessionFactory为主键绑定到当前线程。
         Session session = getSession();
         session.persist(person);
-       // session.flush(); //flush之后才发sql语句
     }
     public void updatePerson(){
 
