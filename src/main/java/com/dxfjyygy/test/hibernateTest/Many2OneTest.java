@@ -58,9 +58,11 @@ public class Many2OneTest  {
         person.setAge(22);
         personService.save(person);
     }
+
+
     @Test
     @Transactional
-//    @Rollback(false)
+    @Rollback(false) // 当用spring-test 时，Rollback(true)会只发SQL语句而数据不会真的和数据库交互。
     public  void testPersist(){
         Person person = new Person();
         Address address = new Address();

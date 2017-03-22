@@ -41,6 +41,7 @@
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>
                 <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
                 <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <!--<prop key="hibernate.connection.autocommit">true</prop>-->
                 <!--spring和hibernate整合使用getCurrentSession()方法获得session实例时，
                 一定记得在sessionFactory的bean中添加<prop key="hibernate.current_session_context_class">thread</prop>，
                 如果你的事务时交给spring管理的，则就不要配置，不然就会报错：the save is not valid without active transaction.-->

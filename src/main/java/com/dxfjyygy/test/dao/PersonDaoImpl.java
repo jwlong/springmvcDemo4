@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-
 /**
  * Created by longjinwen on 2017/3/20.
  */
