@@ -16,6 +16,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.io.*;
+import java.lang.reflect.Field;
+
+import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 /**
  * Created by longjinwen on 2017/3/20.
@@ -23,8 +27,8 @@ import javax.annotation.Resource;
 
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:mvc-dispatcher-servlet.xml"})
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration({"classpath:mvc-dispatcher-servlet.xml"})
 public class Many2OneTest  {
 //    @Autowired
 //    private PersonService personService;
@@ -76,6 +80,63 @@ public class Many2OneTest  {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @Test
+    public void testFile(){
+        String parent_path = "D:\\test";
+        String child_path = "test.txt";
+        String path = parent_path+"\\"+child_path;
+        File file = new File(parent_path,child_path);
+        System.out.println(file.exists());
+        if(!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
+    private void writeFileContent(String filePathName,String newStr) throws IOException {
+        FileInputStream fis = null;
+        InputStreamReader isr = null;
+        PrintWriter pw = null;
+        BufferedReader br = null;
+        FileOutputStream fos = null;
+        StringBuffer sb =  null;
+        String tmp = "";
+        try {
+            fis = new FileInputStream(new File(filePathName));
+            isr = new InputStreamReader(fis);
+            br = new BufferedReader(isr);
+            sb = new StringBuffer();
+            String fieldIn = newStr+"\r\n";
+
+
+            for(int i = 0;(tmp = br.readLine()) !=null;i++){
+                sb.append(tmp);
+            }
+            br.readLine();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }finally {
+            if(fis !=null)
+                fis.close();
+            if(isr !=null)
+                isr.close();
+            if(br != null)
+                br.close();
+            if(fos != null)
+                fos.close();
+        }
+    }
+    @Test
+    public void testLineS(){
+        String line_separator = System.getProperty("line.separator");
+        //assertEquals("equals","1","1");
+        assertEquals("equals","1","1");
+        assertEquals("equals","\r\n",line_separator); // windows system
+        assertEquals("equals","\n",line_separator);
+        System.out.println();
     }
 }
