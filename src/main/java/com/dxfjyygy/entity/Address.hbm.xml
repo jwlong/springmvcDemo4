@@ -10,6 +10,9 @@
         </id>
         <property name="addressDetail"  type="java.lang.String"/>
         <!--  用于映射N-1实体 -->
+        <many-to-one name="person" class="Person"
+        column="person_id" not-null="true"
+        />
     </class>
 
 </hibernate-mapping>

@@ -8,10 +8,18 @@ import java.io.Serializable;
  * N is Person
  * Created by longjinwen on 2017/3/20.
  */
-public class Address implements Serializable{
-    private  Integer addressId;
+public class Address implements Serializable {
+    private Integer addressId;
     private String addressDetail;
+    private Person person;
 
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
 
     public Integer getAddressId() {
         return addressId;

@@ -1,15 +1,26 @@
 package com.dxfjyygy.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by longjinwen on 2017/3/17.
  */
-public class Person implements Serializable{
+public class Person implements Serializable {
     private Integer id;
     private String name;
     private Integer age;
-    private Address address;
+    //    private Address address;
+    private Set<Address> addresses = new HashSet<Address>();  //单向1 -N Person 1的一端
+
+    public Set<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(Set<Address> addresses) {
+        this.addresses = addresses;
+    }
 
     public Integer getId() {
         return id;
@@ -35,11 +46,4 @@ public class Person implements Serializable{
         this.age = age;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
 }

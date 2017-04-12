@@ -8,12 +8,15 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by longjinwen on 2017/3/20.
  */
 @Aspect
-public class PersonDaoImpl extends BaseDaoSessionFactoryImpl implements PersonDao{
+public class PersonDaoImpl extends BaseDaoImpl implements PersonDao{
 
 //    @Resource
 //    private SessionFactory sessionFactory;
@@ -26,7 +29,18 @@ public class PersonDaoImpl extends BaseDaoSessionFactoryImpl implements PersonDa
        return (Integer) session.save(person);
     }
 
-//    事物传播行为介绍:
+    @Override
+    public <T> void saveObject(T obj) {
+        getSession().save(obj);
+    }
+
+    @Override
+    public <T> Integer save(T obj) {
+        Serializable s = getSession().save(obj);
+        return (Integer) getSession().save(obj);
+    }
+
+    //    事物传播行为介绍:
 //     @Transactional(propagation=Propagation.REQUIRED) ：如果有事务, 那么加入事务, 没有的话新建一个(默认情况下)
 //　　@Transactional(propagation=Propagation.NOT_SUPPORTED) ：容器不为这个方法开启事务
 //　　@Transactional(propagation=Propagation.REQUIRES_NEW) ：不管是否存在事务,都创建一个新的事务,原来的挂起,新的执行完毕,继续执行老的事务
@@ -56,7 +70,65 @@ public class PersonDaoImpl extends BaseDaoSessionFactoryImpl implements PersonDa
         Session session = getSession();
         session.persist(person);
     }
+    @Transactional(propagation= Propagation.REQUIRED,rollbackFor=Exception.class,timeout=1,isolation= Isolation.DEFAULT)
+    public void testSaveOne2Many() {
+       try {
+           Session session = getSession();
+           Person p = new Person();
+           Address a = new Address();
+           a.setAddressDetail("东莞长安");
+           session.persist(a);
+           Set<Address> addresses = new HashSet<Address>();
+           addresses.add(a);
+
+           p.setAge(28);
+           p.setName("longjinwen");
+           p.setAddresses(addresses);
+           session.save(p);
+        //   p.getAddresses().add(a);
+//           session.save(p);
+//           Address a2 = new Address();
+//           p.getAddresses().add(a2);
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+
+    }
+
+    //@Transactional(propagation= Propagation.REQUIRED,rollbackFor=Exception.class,timeout=1,isolation= Isolation.DEFAULT)
+    public void testDoubleOne2Many() {
+        try {
+            Session session = getSession();
+            Person p = new Person();
+            Address a = new Address();
+            a.setAddressDetail("changan");
+          //  session.persist(a);
+//            Set<Address> addresses = new HashSet<Address>();
+//            addresses.add(a);
+            p.setAge(28);
+            p.setName("longjinwen");
+            session.persist(p);
+            a.setPerson(p);
+            session.save(a);
+            //   p.getAddresses().add(a);
+//           session.save(p);
+//           Address a2 = new Address();
+//           p.getAddresses().add(a2);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    public void testSaveDoubleOne2Many() {
+    }
+
     public void updatePerson(){
 
+    }
+
+    @Override
+    public <T> T findObject(Class<T> cls, Serializable id) {
+        return super.findObject(cls, id);
     }
 }

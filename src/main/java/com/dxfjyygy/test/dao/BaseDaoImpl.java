@@ -146,6 +146,10 @@ public class BaseDaoImpl  implements BaseDao{
         getSession().save(obj);
     }
 
+    public <T> Integer save(T obj) {
+      return (Integer) getSession().save(obj);
+    }
+
     /*
      * (non-Javadoc)
      *

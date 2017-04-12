@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  * Created by longjinwen on 2017/3/20.
  */
 @Aspect
-public class PersonDaoImpl_bak implements PersonDao {
+public class PersonDaoImpl_bak  extends BaseDaoImpl implements PersonDao {
 
     @Resource
     private SessionFactory sessionFactory;
@@ -36,6 +36,19 @@ public class PersonDaoImpl_bak implements PersonDao {
         session.persist(person);
        // session.flush(); //flush之后才发sql语句
     }
+
+    public void testSaveOne2Many() {
+
+    }
+
+    public <T> void saveObject(T obj) {
+
+    }
+
+    public void testDoubleOne2Many() {
+
+    }
+
     public void updatePerson(){
 
     }

@@ -88,6 +88,7 @@ public interface BaseDao {
      */
     <T> void saveObject(T obj);
 
+    <T> Integer save(T obj);
     /**
      *
      * @param obj

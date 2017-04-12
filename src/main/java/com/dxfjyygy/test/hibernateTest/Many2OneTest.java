@@ -58,7 +58,7 @@ public class Many2OneTest  {
         Address address = new Address();
         address.setAddressDetail("Dong Guan");
         person.setName("longjinwen");
-        person.setAddress(address);
+//        person.setAddress(address);
         person.setAge(22);
         personService.save(person);
     }
@@ -72,7 +72,7 @@ public class Many2OneTest  {
         Address address = new Address();
         address.setAddressDetail("Dong Guan");
         person.setName("longjinwen");
-        person.setAddress(address);
+//        person.setAddress(address);
         person.setAge(22);
         try {
             personService.testPersist(person);
@@ -111,8 +111,6 @@ public class Many2OneTest  {
             br = new BufferedReader(isr);
             sb = new StringBuffer();
             String fieldIn = newStr+"\r\n";
-
-
             for(int i = 0;(tmp = br.readLine()) !=null;i++){
                 sb.append(tmp);
             }

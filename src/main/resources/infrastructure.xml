@@ -51,6 +51,7 @@
         <property name="mappingResources">
             <list>
             <value>com/dxfjyygy/entity/User.hbm.xml</value>
+            <!--<value>com/dxfjyygy/entity/Person.hbm_many2one.xml</value>-->
             <value>com/dxfjyygy/entity/Person.hbm.xml</value>
             <value>com/dxfjyygy/entity/Address.hbm.xml</value>
             </list>

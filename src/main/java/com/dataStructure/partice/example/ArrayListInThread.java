@@ -8,8 +8,8 @@ import java.util.List;
  * Created by longjinwen on 2017/3/2.
  */
 public class ArrayListInThread implements  Runnable {
-   // List<String> list1 = new ArrayList();
-    List<String> list1 = Collections.synchronizedList(new ArrayList<String>());// thread safe
+   List<String> list1 = new ArrayList();
+  //  List<String> list1 = Collections.synchronizedList(new ArrayList<String>());// thread safe
     public void run() {
         try {
             Thread.sleep( (int)Math.random()*2);
