@@ -10,9 +10,36 @@ import java.util.Set;
 public class Person implements Serializable {
     private Integer id;
     private String name;
+    private Name nameObj;
+    private Name name2;
     private Integer age;
     //    private Address address;
     private Set<Address> addresses = new HashSet<Address>();  //单向1 -N Person 1的一端
+    public  Person(){};
+    public Person(Integer id, String name, Name nameObj, Name name2, Integer age, Set<Address> addresses) {
+        this.id = id;
+        this.name = name;
+        this.nameObj = nameObj;
+        this.name2 = name2;
+        this.age = age;
+        this.addresses = addresses;
+    }
+
+    public Name getName2() {
+        return name2;
+    }
+
+    public void setName2(Name name2) {
+        this.name2 = name2;
+    }
+
+    public Name getNameObj() {
+        return nameObj;
+    }
+
+    public void setNameObj(Name nameObj) {
+        this.nameObj = nameObj;
+    }
 
     public Set<Address> getAddresses() {
         return addresses;

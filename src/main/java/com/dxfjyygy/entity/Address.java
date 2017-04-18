@@ -12,7 +12,10 @@ public class Address implements Serializable {
     private Integer addressId;
     private String addressDetail;
     private Person person;
-
+    public  Address(){};
+    public Address(String addressDetail){
+        this.addressDetail = addressDetail;
+    }
     public Person getPerson() {
         return person;
     }

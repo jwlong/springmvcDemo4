@@ -24,7 +24,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#findObject(java.lang.String)
+     *
      */
 
     public <T> T findObject(String hql) {
@@ -35,8 +35,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#findObject(java.lang.String,
-     * java.lang.Object[])
+
      */
 
     public <T> T findObject(String hql, Object... objects) {
@@ -47,7 +46,6 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#findObject(java.lang.Class,
      * java.io.Serializable)
      */
 
@@ -58,7 +56,6 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#findObjectBySql(java.lang.String)
      */
 
     public <T> T findObjectBySql(String sql) {
@@ -69,7 +66,6 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#findObjectBySql(java.lang.String,
      * java.lang.Object[])
      */
 
@@ -81,7 +77,6 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#findList(java.lang.String)
      */
 
     public <T> List<T> findList(String hql) {
@@ -92,7 +87,6 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#findList(java.lang.String,
      * java.lang.Object[])
      */
 
@@ -105,7 +99,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#findList(java.lang.Class)
+     * 
      */
 
     public <T> List<T> findList(Class<T> cls) {
@@ -116,7 +110,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#findListBySql(java.lang.String)
+     * 
      */
 
     public <T> List<T> findListBySql(String sql) {
@@ -127,7 +121,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#findListBySql(java.lang.String,
+     * 
      * java.lang.Object[])
      */
 
@@ -140,7 +134,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#saveObject(java.lang.Object)
+     * 
      */
     public <T> void saveObject(T obj) {
         getSession().save(obj);
@@ -153,7 +147,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#updateObject(java.lang.Object)
+     * 
      */
 
     public <T> void updateObject(T obj) {
@@ -163,7 +157,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#saveOrUpdateObject(java.lang.Object)
+     * 
      */
 
     public <T> void saveOrUpdateObject(T obj) {
@@ -173,7 +167,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#executeSql(java.lang.String)
+     * 
      */
 
     public int executeSql(String sql) {
@@ -184,7 +178,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#executeSql(java.lang.String,
+     * 
      * java.lang.Object[])
      */
 
@@ -197,7 +191,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#coutObjects(java.lang.String)
+     * 
      */
 
     public int coutObjects(String hql) {
@@ -210,7 +204,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#countObjects(java.lang.String,
+     * 
      * java.lang.Object[])
      */
 
@@ -225,7 +219,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#findPageList(java.lang.String, int, int)
+     *  int, int)
      */
 
     public <T> PageList<T> findPageList(String hql, int page, int rows) {
@@ -236,7 +230,7 @@ public class BaseDaoImpl  implements BaseDao{
     /*
      * (non-Javadoc)
      *
-     * @see com.school.dao.BaseDao#findPageList(java.lang.String, int, int,
+     *  int, int,
      * java.lang.Object[])
      */
 

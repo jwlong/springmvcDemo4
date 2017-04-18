@@ -11,6 +11,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by longjinwen on 2017/4/6.
@@ -72,9 +74,33 @@ public class DoubleOne2ManyTest {
     @Rollback(false)
     public void test2(){
        Person p =  personService.getPerson(19);
-        System.out.println(p.getName());
+        System.out.println("Person name =====================>"+p.getName());
         for(Address a : p.getAddresses()){
-            System.out.println(a.getAddressDetail());
+            System.out.println("Address =====================>"+a.getAddressDetail());
         }
+    }
+
+
+    @Test
+    @Transactional
+    @Rollback(false)
+    public void test4(){
+        Person p =  personService.getPerson(19);
+        System.out.println(p.getName());
+        p.setAge(22);
+
+        Set<Address> addresses = new HashSet<Address>();
+        int i = 0;
+        for(Address a : p.getAddresses()){
+            i++;
+          a.setAddressDetail("address :"+i);
+          addresses.add(a);
+        }
+        Address a2 = new Address("中文地址test");
+
+        a2.setPerson(p);
+        addresses.add(a2);
+        p.setAddresses(addresses);
+        personService.save(p);
     }
 }

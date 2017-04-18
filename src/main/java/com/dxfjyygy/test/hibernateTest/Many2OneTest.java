@@ -134,7 +134,6 @@ public class Many2OneTest  {
         //assertEquals("equals","1","1");
         assertEquals("equals","1","1");
         assertEquals("equals","\r\n",line_separator); // windows system
-        assertEquals("equals","\n",line_separator);
-        System.out.println();
+        assertEquals("equals","\n",line_separator); // not windows system
     }
 }
