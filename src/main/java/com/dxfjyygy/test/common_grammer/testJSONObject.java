@@ -14,7 +14,6 @@ public class testJSONObject {
         jsonObject.accumulate("1","1");
         jsonObject.accumulate("2","1");
         jsonObject.accumulate("2",3);
-        System.out.println("test");
         System.out.println(jsonObject.length());
         System.out.println(jsonObject.get("2"));
         System.out.println(jsonObject.toString());
