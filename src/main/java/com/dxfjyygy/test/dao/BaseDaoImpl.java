@@ -136,8 +136,8 @@ public class BaseDaoImpl  implements BaseDao{
      *
      * 
      */
-    public <T> void saveObject(T obj) {
-        getSession().save(obj);
+    public <T> Long saveObject(T obj) {
+        return  (Long) getSession().save(obj);
     }
 
     public <T> Integer save(T obj) {

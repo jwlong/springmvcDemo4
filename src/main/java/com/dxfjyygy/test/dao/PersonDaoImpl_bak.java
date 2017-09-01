@@ -41,8 +41,8 @@ public class PersonDaoImpl_bak  extends BaseDaoImpl implements PersonDao {
 
     }
 
-    public <T> void saveObject(T obj) {
-
+    public <T> Long saveObject(T obj) {
+        return null;
     }
 
     public void testDoubleOne2Many() {

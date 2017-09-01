@@ -60,7 +60,7 @@ public class Many2OneTest  {
         person.setName("longjinwen");
 //        person.setAddress(address);
         person.setAge(22);
-        personService.save(person);
+        personService.add(person);
     }
 
 

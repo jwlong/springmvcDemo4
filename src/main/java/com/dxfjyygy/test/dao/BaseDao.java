@@ -86,7 +86,7 @@ public interface BaseDao {
      *
      * @param obj
      */
-    <T> void saveObject(T obj);
+    <T> Long saveObject(T obj);
 
     <T> Integer save(T obj);
     /**

@@ -3,10 +3,12 @@ package com.dxfjyygy.test.service;
 import com.dxfjyygy.entity.Person;
 import com.dxfjyygy.test.dao.PersonDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by longjinwen on 2017/2/28.
  */
+@Service
 public class PersonServiceImpl implements PersonService
 {
 //    public void setPersonDao(PersonDao personDao) {
@@ -30,12 +32,17 @@ public class PersonServiceImpl implements PersonService
         personDao.saveObject(obj);
     }
 
-    public <T> Integer save(T obj) {
-        return  personDao.save(obj);
-    }
 
     public void testDoubleOne2Many() {
         personDao.testDoubleOne2Many();
+    }
+
+    public <T> Long save(T obj) {
+        return personDao.saveObject(obj);
+    }
+
+    public Integer add(Person obj) {
+        return 0;
     }
 
     public Person getPerson(int i) {

@@ -35,8 +35,8 @@ public class DoubleOne2ManyTest {
             Address a1 = new Address();
             a1.setPerson(p);
             //personService.saveObject(p);
-            int id = personService.save(p);
-            personService.save(a1);
+            int id = personService.add(p);
+           // personService.add(a1);
 
             System.out.println("=========================================>finish");
             System.out.println("Person ID:"+id);
@@ -60,7 +60,7 @@ public class DoubleOne2ManyTest {
             a1.setAddressDetail("aaaa");
             a1.setPerson(p);
             //personService.saveObject(p);
-            int id = personService.save(p);
+            long id = personService.save(p);
             personService.save(a1);
 
             System.out.println("=========================================>finish");

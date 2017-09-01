@@ -4,10 +4,12 @@ import com.dxfjyygy.entity.Address;
 import com.dxfjyygy.entity.Person;
 import org.aspectj.lang.annotation.Aspect;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,6 +17,7 @@ import java.util.Set;
 /**
  * Created by longjinwen on 2017/3/20.
  */
+@Repository
 @Aspect
 public class PersonDaoImpl extends BaseDaoImpl implements PersonDao{
 
@@ -30,8 +33,11 @@ public class PersonDaoImpl extends BaseDaoImpl implements PersonDao{
     }
 
     @Override
-    public <T> void saveObject(T obj) {
-        getSession().save(obj);
+    public <T>  Long saveObject(T obj) {
+        Serializable serializable = getSession().save(obj);
+        int tmp = (Integer) serializable;
+        long r = tmp;
+        return r;
     }
 
     @Override

@@ -9,6 +9,21 @@
 <html>
 <head>
     <title>Title</title>
+    <script  type="text/javascript" src="../js/jquery/jquery-1.8.3.min.js"></script>
+    <script>
+        function test() {
+           $.ajax({
+               url:'getTest',
+               type:'post',
+               success:function (e) {
+                   console.log(e);
+                   alert(e);
+               }
+
+           })
+        }
+
+    </script>
 </head>
 <body>
 test JS<br>
@@ -19,6 +34,18 @@ test JS<br>
         密码：<input type="password" value="" name="passwd">
         <input type="submit" value="提交">
     </form>
+
+<form  name="form2" action="login" method="post">
+    选择表：
+    <select name="" onclick="test()">
+        <option>1</option>
+        <option>2</option>
+    </select>
+    <%--<input type="text" value="" name="tableName" >--%>
+
+</form>
+
+
 
 </body>
 </html>
