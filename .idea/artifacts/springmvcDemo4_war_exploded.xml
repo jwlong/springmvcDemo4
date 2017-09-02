@@ -4,7 +4,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="springmvcDemo4" />
+          <element id="module-output" name="Projects_template_withSpring" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-context-support:4.2.4.RELEASE" />
@@ -61,7 +61,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/springmvcDemo4/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="springmvcDemo4/web/Web" />
+      <element id="javaee-facet-resources" facet="Projects_template_withSpring/web/Web" />
     </root>
   </artifact>
 </component>
