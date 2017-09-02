@@ -2,16 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-    http://www.springframework.org/schema/tx
-    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
-    http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    ">
 
-    <context:property-placeholder location="classpath:/properties/hibernate.properties" />
+    <context:property-placeholder location="classpath:properties/hibernate.properties" />
+
     <!-- 使用C3P0数据源，MySQL数据库 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
@@ -25,6 +25,7 @@
         <property name="initialPoolSize" value="1"></property>
         <property name="maxIdleTime" value="20"></property>
     </bean>
+
     <!-- session工厂 -->
     <!-- spring与hibernate整合配置，扫描所有dao -->
     <bean id="sessionFactory"
@@ -41,44 +42,22 @@
                 <prop key="hibernate.dialect">${hibernate.dialect}</prop>
                 <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
                 <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
-                <!--<prop key="hibernate.connection.autocommit">true</prop>-->
-                <!--spring和hibernate整合使用getCurrentSession()方法获得session实例时，
-                一定记得在sessionFactory的bean中添加<prop key="hibernate.current_session_context_class">thread</prop>，
-                如果你的事务时交给spring管理的，则就不要配置，不然就会报错：the save is not valid without active transaction.-->
+                <!--如查采用了注解式的事件.@Transactional  则不需要这样的显式的说明-->
                 <!--<prop key="hibernate.current_session_context_class">thread</prop>-->
             </props>
         </property>
         <property name="mappingResources">
             <list>
             <value>com/dxfjyygy/entity/User.hbm.xml</value>
-            <!--<value>com/dxfjyygy/entity/Person.hbm_many2one.xml</value>-->
-            <value>com/dxfjyygy/entity/Person.hbm.xml</value>
-            <value>com/dxfjyygy/entity/Address.hbm.xml</value>
             </list>
         </property>
     </bean>
-
+    <aop:aspectj-autoproxy />
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
-    <aop:aspectj-autoproxy />
     <!-- 对数据源进行事务管理 -->
     <tx:annotation-driven transaction-manager="transactionManager" />
-    <!--<bean id="transactionBase"-->
-          <!--class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"-->
-          <!--lazy-init="true" abstract="true">-->
-        <!--&lt;!&ndash; 配置事务管理器 &ndash;&gt;-->
-        <!--<property name="transactionManager" ref="transactionManager" />-->
-        <!--&lt;!&ndash; 配置事务属性 &ndash;&gt;-->
-        <!--<property name="transactionAttributes">-->
-            <!--<props>-->
-                <!--<prop key="*">PROPAGATION_REQUIRED</prop>-->
-            <!--</props>-->
-        <!--</property>-->
-    <!--</bean>-->
-    <!--<bean id="userDao" class="com.dxfjyygy.test.dao.UserDaoImpl" />-->
-    <!--<bean id="userService" class="com.dxfjyygy.test.service.UserServiceImpl" />-->
-    <bean id="personDao" class="com.dxfjyygy.test.dao.PersonDaoImpl" />
-    <bean id="personService" class="com.dxfjyygy.test.service.PersonServiceImpl" />
+
 </beans>

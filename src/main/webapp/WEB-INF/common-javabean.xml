@@ -12,34 +12,35 @@
     <!--入自动注解处理-->
     <context:annotation-config/>
     <context:component-scan base-package="com.dxfjyygy.controller" />
-    <context:component-scan base-package="com.dxfjyygy.test.dao" />
-    <context:component-scan base-package="com.dxfjyygy.test.service"/>
+    <context:component-scan base-package="com.dxfjyygy.test.aopTest" />
+    <context:component-scan base-package="com.dxfjyygy.dao" />
+    <context:component-scan base-package="com.dxfjyygy.service"/>
     <!--<bean id="stoneAxe" class="com.dxfjyygy.test.test1.StoneAxe" />-->
     <!--<bean id="chinese" class="com.dxfjyygy.test.test1.Chinese">-->
         <!--<property name="axe">-->
             <!--<ref bean="stoneAxe"/>-->
         <!--</property>-->
     <!--</bean>-->
-    <!--<bean id="personService" class="com.dxfjyygy.test.service.PersonServiceImpl">-->
+    <!--<bean id="personService" class="com.dxfjyygy.service.PersonServiceImpl">-->
         <!--<property name="chinese">-->
             <!--<ref bean="chinese" />-->
         <!--</property>-->
 
     <!--没有 使用AutoWrite之前-->
-    <!--<bean id="userService" class="com.dxfjyygy.test.service.UserServiceImpl" >-->
+    <!--<bean id="userService" class="com.dxfjyygy.service.UserServiceImpl" >-->
         <!--<property name="userDao">-->
             <!--<ref bean="userDao" />-->
         <!--</property>-->
     <!--</bean>-->
-    <!--<bean id="userDao" class="com.dxfjyygy.test.dao.UserDaoImpl">-->
+    <!--<bean id="userDao" class="UserDaoImpl">-->
         <!--<property name="sessionFactory">-->
             <!--<ref bean="sessionFactory" />-->
         <!--</property>-->
     <!--</bean>-->
     <!--用了AutoWrite-->
-    <!--<bean id="userDao" class="com.dxfjyygy.test.dao.UserDaoImpl" />-->
-    <!--<bean id="userService" class="com.dxfjyygy.test.service.UserServiceImpl" />-->
+    <!--<bean id="userDao" class="UserDaoImpl" />-->
+    <!--<bean id="userService" class="com.dxfjyygy.service.UserServiceImpl" />-->
 <!--
-    <context:component-scan base-package="com.dxfjyygy.test.service"/>
+    <context:component-scan base-package="com.dxfjyygy.service"/>
     <context:component-scan base-package="com.dxfjyygy.test.dao"/>-->
 </beans>

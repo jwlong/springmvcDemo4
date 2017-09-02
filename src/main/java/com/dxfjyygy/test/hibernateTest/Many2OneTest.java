@@ -2,14 +2,11 @@ package com.dxfjyygy.test.hibernateTest;
 
 import com.dxfjyygy.entity.Address;
 import com.dxfjyygy.entity.Person;
-import com.dxfjyygy.test.dao.PersonDao;
-import com.dxfjyygy.test.service.PersonService;
+import com.dxfjyygy.service.PersonService;
 import org.junit.Test;
-import org.junit.internal.runners.JUnit4ClassRunner;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -17,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.io.*;
-import java.lang.reflect.Field;
 
 import static org.springframework.test.util.AssertionErrors.assertEquals;
 

@@ -2,7 +2,7 @@ package com.dxfjyygy.test.hibernateTest;
 
 import com.dxfjyygy.entity.Address;
 import com.dxfjyygy.entity.Person;
-import com.dxfjyygy.test.service.PersonService;
+import com.dxfjyygy.service.PersonService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.annotation.Rollback;

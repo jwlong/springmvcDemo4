@@ -2,7 +2,7 @@ package com.dxfjyygy.controller;
 
 import com.dxfjyygy.com.ResultBean;
 import com.dxfjyygy.entity.Person;
-import com.dxfjyygy.test.service.PersonService;
+import com.dxfjyygy.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by longjinwen on 01/09/2017.
  */
 @Controller
+@RequestMapping("/test")
 public class PersonController {
+   private final PersonService personService;
+    //使用构造注入
     @Autowired
-    PersonService personService;
+    public PersonController(PersonService personService) {
+        this.personService = personService;
+    }
 
 
     @RequestMapping(value = "/add" ,method = RequestMethod.POST)

@@ -81,6 +81,5 @@
     <bean id="myJob" class="com.dxfjyygy.controller.MyJob" />
     <import resource="common-javabean.xml" />
     <import resource="infrastructure.xml"/>
-
 </beans>
 
