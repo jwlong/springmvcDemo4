@@ -4,6 +4,7 @@ import com.dxfjyygy.com.ResultBean;
 import com.dxfjyygy.entity.Person;
 import com.dxfjyygy.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by longjinwen on 01/09/2017.
  */
 @Controller
+@Component("personController")
 @RequestMapping("/test")
 public class PersonController {
    private final PersonService personService;
