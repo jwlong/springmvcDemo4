@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Created by longjinwen on 01/09/2017.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:mvc-core-config.xml" ,"classpath:mvc-dispatcher-servlet.xml"})
+@ContextConfiguration({"classpath:mvc-dispatcher-servlet.xml"})
 @WebAppConfiguration
 public class T1 {
 
@@ -37,9 +37,12 @@ public class T1 {
     @Before
     public void setUp() throws Exception {
         mockMvc = MockMvcBuilders.standaloneSetup(personController).build();
+        Person person = new Person();
+        person.setAge(12);
+        person.setName("testAOP");
     }
     @Test
-    @Transactional
+    @Transactional // 如果去掉这个事务的注解，就会抛
     @Rollback(false) //  若不加Rollback默认 为true
     public void test1(){
         Person person = new Person();
@@ -48,6 +51,8 @@ public class T1 {
         personService.add(person);
     }
     @Test
+    @Transactional
+    @Rollback(false) //  若不加Rollback默认 为true
     public void  testContoller1() throws Exception {
        // mockMvc.perform(get("/add"));
         mockMvc.perform(get("/add"))

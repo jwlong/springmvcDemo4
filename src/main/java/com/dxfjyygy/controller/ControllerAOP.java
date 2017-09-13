@@ -1,13 +1,11 @@
 package com.dxfjyygy.controller;
 
 
-import com.dxfjyygy.com.ResultBean;
+import com.dxfjyygy.beans.ResultBean;
 import com.sun.xml.internal.ws.api.model.CheckedException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.xml.transform.Result;
 
 /**
  * Created by longjinwen on 01/09/2017.
@@ -36,6 +34,6 @@ public class ControllerAOP {
             resultBean.setMsg(e.toString());
             resultBean.setCode(ResultBean.FAIL);
         }
-        return null;
+        return resultBean;
     }
 }

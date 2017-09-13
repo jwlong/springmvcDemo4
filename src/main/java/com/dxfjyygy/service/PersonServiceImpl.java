@@ -4,6 +4,8 @@ import com.dxfjyygy.entity.Person;
 import com.dxfjyygy.dao.PersonDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 /**
  * Created by longjinwen on 2017/2/28.
@@ -11,11 +13,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonServiceImpl implements PersonService
 {
-//    public void setPersonDao(PersonDao personDao) {
-//        this.personDao = personDao;
-//    }
-    @Autowired
+
     private PersonDao personDao;
+    @Autowired
+    public PersonServiceImpl(PersonDao personDao){
+        this.personDao = personDao;
+    }
+
+//    @Autowired
+//    private PersonDao personDao;
     public Long save(Person person) {
         personDao.save(person);
         return null;
@@ -40,9 +46,9 @@ public class PersonServiceImpl implements PersonService
     public <T> Long save(T obj) {
         return personDao.saveObject(obj);
     }
-
+    @Transactional(readOnly = true)
     public Integer add(Person obj) {
-        return 0;
+        return personDao.save(obj);
     }
 
     public Person getPerson(int i) {

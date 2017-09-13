@@ -30,7 +30,7 @@
 
         <!--<property name="jobDetail">-->
             <!--<bean class="org.springframework.scheduling.quartz.JobDetailBean">-->
-                <!--<property name="jobClass" value="com.dxfjyygy.controller.TesJobBeantQuartz" />-->
+                <!--<property name="jobClass" value="beans.dxfjyygy.controller.TesJobBeantQuartz" />-->
             <!--</bean>-->
         <!--</property>-->
         <!--&lt;!&ndash;指定cron时间&ndash;&gt;-->

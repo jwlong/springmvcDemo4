@@ -15,19 +15,19 @@
     <context:component-scan base-package="com.dxfjyygy.test.aopTest" />
     <context:component-scan base-package="com.dxfjyygy.dao" />
     <context:component-scan base-package="com.dxfjyygy.service"/>
-    <!--<bean id="stoneAxe" class="com.dxfjyygy.test.test1.StoneAxe" />-->
-    <!--<bean id="chinese" class="com.dxfjyygy.test.test1.Chinese">-->
+    <!--<bean id="stoneAxe" class="beans.dxfjyygy.test.test1.StoneAxe" />-->
+    <!--<bean id="chinese" class="beans.dxfjyygy.test.test1.Chinese">-->
         <!--<property name="axe">-->
             <!--<ref bean="stoneAxe"/>-->
         <!--</property>-->
     <!--</bean>-->
-    <!--<bean id="personService" class="com.dxfjyygy.service.PersonServiceImpl">-->
+    <!--<bean id="personService" class="beans.dxfjyygy.service.PersonServiceImpl">-->
         <!--<property name="chinese">-->
             <!--<ref bean="chinese" />-->
         <!--</property>-->
 
     <!--没有 使用AutoWrite之前-->
-    <!--<bean id="userService" class="com.dxfjyygy.service.UserServiceImpl" >-->
+    <!--<bean id="userService" class="beans.dxfjyygy.service.UserServiceImpl" >-->
         <!--<property name="userDao">-->
             <!--<ref bean="userDao" />-->
         <!--</property>-->
@@ -39,8 +39,8 @@
     <!--</bean>-->
     <!--用了AutoWrite-->
     <!--<bean id="userDao" class="UserDaoImpl" />-->
-    <!--<bean id="userService" class="com.dxfjyygy.service.UserServiceImpl" />-->
+    <!--<bean id="userService" class="beans.dxfjyygy.service.UserServiceImpl" />-->
 <!--
-    <context:component-scan base-package="com.dxfjyygy.service"/>
-    <context:component-scan base-package="com.dxfjyygy.test.dao"/>-->
+    <context:component-scan base-package="beans.dxfjyygy.service"/>
+    <context:component-scan base-package="beans.dxfjyygy.test.dao"/>-->
 </beans>

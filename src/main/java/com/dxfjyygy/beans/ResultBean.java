@@ -1,4 +1,4 @@
-package com.dxfjyygy.com;
+package com.dxfjyygy.beans;
 
 import java.io.Serializable;
 
