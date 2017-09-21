@@ -1,4 +1,4 @@
-package com.dataStructure.test;
+package com.dataStructure.stackTest.arrayStack;
 
 /**
  * Created by longjinwen on 2017/3/1.
